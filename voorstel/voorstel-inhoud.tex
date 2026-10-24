@@ -16,99 +16,63 @@
 \section{Context en probleemstelling}%
 \label{vst:context}
 
-% Waar loop je stage, wat doet dat team, en welk concreet probleem of welke
-% concrete behoefte is de aanleiding? Noem de mensen voor wie het een probleem
-% is. Vermijd algemeenheden als "bedrijven hebben nood aan".
-
-Vervang deze tekst.
+Tijdens mijn stage binnen het IT-team ter ondersteuning van HR (het People Experience team / PX) bij Volvo Car Gent werk ik aan digitale oplossingen voor personeelsbeheer en medewerkerservaring. Door de introductie van UKG verdwijnt het directe inzicht in perimetertikkingen via OnGuard aan de fabriekspoorten, omdat UKG enkel registreert aan de tikklokken bij de werkposten. Hierdoor verliezen leidinggevenden het actuele zicht op wie al op de site aanwezig is, wat leidt tot vertragingen bij shiftwissels en het tijdig opvangen van afwezige operatoren.
 
 %---------- 2. Doelstelling ---------------------------------------------------
 
 \section{Doelstelling}%
 \label{vst:doelstelling}
 
-% Wat bestaat er op het einde van dit project dat er vandaag niet is? Formuleer
-% het als een resultaat waarvan iemand kan vaststellen dat het er is, en
-% vermeld waaraan je zal merken dat het geslaagd is.
-
-Vervang deze tekst.
+Het resultaat is een beveiligde webapplicatie waarmee leidinggevenden realtime perimeteraanwezigheden per team bekijken en tiktijden tot zes maanden terug opvragen via Global ID. Het project is geslaagd zodra leidinggevenden via een responsieve interface foutloos en uitsluitend gegevens van hun eigen directe medewerkers kunnen inzien binnen een geautomatiseerde Ku\-ber\-ne\-tes-om\-ge\-ving.
 
 %---------- 3. Technologieën --------------------------------------------------
 
 \section{Technologieën}%
 \label{vst:technologieen}
 
-% Met welke talen, frameworks, databanken en diensten ga je werken? Welke
-% liggen vast door de omgeving van het bedrijf, en welke kies je zelf? Vermeld
-% ook wat nieuw voor je is: technologische verbreding wordt gewaardeerd.
-%
-% Vermeld hier ook of je AI denkt in te zetten, en waarvoor. Dat mag en wordt
-% zelfs verwacht; in je rapport verantwoord je later wat je precies gedaan hebt.
-%
-% Verwerkt je toepassing persoonsgegevens, of zit er AI in wat je bouwt? Zeg
-% dat dan nu al in één zin: dan weet je begeleider meteen dat de AVG of de
-% AI Act meespeelt, en kan dat mee bekeken worden bij de goedkeuring.
-
-Vervang deze tekst.
+De frontend gebruikt ASP.NET Core Razor Pages (server-rendered en lichtgewicht), gekoppeld aan een C\#-backend die communiceert met de OnGuard SQL-database. Teamgegevens worden onderzocht aan de hand van Kafka Events en een REST API binnen de HR Service Layer die data uit SAP SuccessFactors ontsluit. Authenticatie verloopt via Microsoft Entra ID om Single Sign-On (SSO) te bieden, gecombineerd met Microsoft Graph API voor hiërarchische autorisatie. De deployment verloopt via GitHub Actions en ArgoCD naar Kubernetes met Azure Key Vault, aangevuld met Serilog en Grafana voor logging. Nieuw voor mij zijn Kafka, ArgoCD, Kubernetes-deployment en Microsoft Graph API. AI wordt gebruikt voor coderefactoring en pipeline-hulp. Wegens de verwerking van persoonsgegevens zijn de AVG-principes van dataminimalisatie en rolgebaseerde afscherming strikt van toepassing.
 
 %---------- 4. Afbakening -----------------------------------------------------
 
 \section{Afbakening}%
 \label{vst:afbakening}
 
-% DE BELANGRIJKSTE RUBRIEK. Je stage en je graduaatsproject lopen bij hetzelfde
-% bedrijf; dit is waar je ze uit elkaar houdt.
-%
-% Beschrijf:
-%   - wat je dagelijkse stagewerk is;
-%   - wat het afgebakende geheel is dat JIJ zelfstandig analyseert, ontwerpt
-%     en oplevert - dat is je graduaatsproject;
-%   - wat er uitdrukkelijk buiten valt.
-%
-% Toets voor jezelf: welke analyse en welk ontwerp maak jij zelf? Kan je daar
-% niets over schrijven, dan heb je een taak en geen project.
-
-Vervang deze tekst.
+Mijn reguliere stagewerk bestaat uit softwareontwikkeling en onderhoud in het team. Mijn graduaatsproject is het zelfstandig ontwerpen, bouwen en deployen van de perimetertiktijden-applicatie: van de OnGuard SQL-koppeling en autorisatielogica tot de containerisatie, ArgoCD-uitrol en monitoring. Buiten scope vallen hardware-aanpassingen aan poorten of tikklokken, synchronisatie naar UKG en payroll-verwerking. Realtime updates via WebSockets gelden als uitbreiding bij tijdsoverschot.
 
 %---------- 5. Verwachte meerwaarde -------------------------------------------
 
 \section{Verwachte meerwaarde}%
 \label{vst:meerwaarde}
 
-% Wat heeft het bedrijf hieraan? Wat blijft er van jouw werk over wanneer je
-% stage afgelopen is? Denk aan tijdwinst, minder fouten, nieuwe mogelijkheden,
-% lagere kosten, of een basis waarop verder gebouwd kan worden.
-
-Vervang deze tekst.
+De applicatie herstelt het cruciale overzicht bij ploegwissels, zodat onbemande posten direct opgevangen worden en productiestilstand voorkomen wordt. Daarnaast borgt de Microsoft Graph-autorisatie dat tiktijden AVG-conform worden afgeschermd, en levert het project een herbruikbaar GitOps-sjabloon op voor toekomstige interne microservices.
 
 %---------- 6. Planning en werkbelasting --------------------------------------
 
 \section{Planning en werkbelasting}%
 \label{vst:planning}
 
-% Het graduaatsproject is ongeveer tien werkdagen, samen ongeveer 100 uren.
-% Verdeel die over de fasen van je project en geef per fase aan wat je oplevert.
-% Vermeld ook of je die dagen gefocust opneemt of gespreid over de stageperiode,
-% en dat je dit met je mentor afgesproken hebt.
+Het project omvat 100 uren (tien werkdagen), gespreid in vaste projectblokken in overleg met mijn mentor.
 
 \begin{table}[htbp]
   \centering
+  \small
   \begin{tabular}{llr}
     \toprule
     \textbf{Fase} & \textbf{Wat lever je op} & \textbf{Uren} \\
     \midrule
-    Analyse en vereisten      & overzicht van de vereisten   & 15  \\
-    Technologiekeuze          & verantwoorde keuze           & 10  \\
-    Ontwerp                   & architectuur en gegevensmodel& 15  \\
-    Realisatie                & werkende oplossing           & 40  \\
-    Testen en validatie       & testverslag                  & 10  \\
-    Rapport, poster en demo   & de op te leveren documenten  & 10  \\
+    Analyse en vereisten      & Vereisten en OnGuard-datamapping        & 15  \\
+    Technologiekeuze \& PoC   & PoC Microsoft Graph en datakoppeling    & 10  \\
+    Ontwerp en architectuur   & Architectuur, queries en UI-wireframes  & 15  \\
+    Realisatie                & Razor Pages UI, backend en Graph-logica & 35  \\
+    DevOps \& Monitoring      & Dockerfile, CI/CD, ArgoCD en Grafana    & 10  \\
+    Testen en validatie       & Rolvalidatie en tests leidinggevenden   & 5   \\
+    Documentatie en demo      & Rapportage, poster en demonstratie      & 10  \\
     \midrule
-    \textbf{Totaal}           &                              & \textbf{100} \\
+    \textbf{Totaal}           &                                         & \textbf{100} \\
     \bottomrule
   \end{tabular}
   \caption[Planning en werkbelasting]{\label{tab:vst-planning}%
-    Vervang deze verdeling door je eigen planning.}
+    Planning van het graduaatsproject (100 uren).}
 \end{table}
 
 %---------- 7. Risico's -------------------------------------------------------
@@ -116,11 +80,8 @@ Vervang deze tekst.
 \section{Risico's}%
 \label{vst:risicos}
 
-% Wat kan dit project doen mislukken, en wat doe je dan? Denk aan: toegang tot
-% gegevens of systemen die je nodig hebt, afhankelijkheid van een collega of
-% een derde partij, technologie die je nog moet leren, of drukte op de
-% werkvloer waardoor je dagen niet vrijkomen.
-%
-% Twee tot drie risico's met telkens één zin over wat je terugvalplan is.
-
-Vervang deze tekst.
+\begin{itemize}
+    \item \textbf{Beveiligde toegang tot OnGuard en SAP SuccessFactors:} Rechtenaanvragen via het \emph{least-privilege}-principe kunnen doorlooptijd vragen. \emph{Terugvalplan:} Ontwikkelen met geanonimiseerde mock-data en views.
+    \item \textbf{Feedback en businessafstemming:} Bruikbaarheid vereist directe input van de werkvloer. \emph{Terugvalplan:} Vroegtijdige wireframes en korte reviewmomenten met mentor en sleutelgebruikers.
+    \item \textbf{Beperkingen op tenant-rechten in Microsoft Graph:} Indien rechten op \emph{direct reports} te restrictief blijken in productie. \emph{Terugvalplan:} Uitwijken naar Entra ID-beveiligingsgroepen of de HR Service Layer.
+\end{itemize}
